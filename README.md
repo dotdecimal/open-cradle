@@ -14,5 +14,8 @@ used as needed to expediate development. As this project matures, this code base
 will be more fully partitioned, cleaned, and organized and complete working demo
 projects will be added to help new users gain a full understanding of the system.
 
+## LICENSE
 
-Copyright (c) 2017 .decimal, LLC & Partners HealthCare
+Copyright (c) 2012 - present  .decimal, LLC & Partners HealthCare
+
+Licensed under the [MIT](License.txt) License.
