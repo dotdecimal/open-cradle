@@ -1,0 +1,75 @@
+# Base image
+FROM        ubuntu:14.04
+
+# Bundle app source and copy to Docker image
+COPY . /source/
+
+# Update and install packages
+RUN apt-get update && apt-get install -y \
+        build-essential \
+        curl \
+        cmake \
+        ocaml \
+        zlib1g-dev \
+        libboost-all-dev \
+        freeglut3-dev \
+        libdevil-dev \
+        libxext-dev \
+        libxdamage-dev \
+        libx11-xcb-dev \
+        libxcb-glx0-dev \
+        libxcb-dri2-0-dev \
+        libxcb-dri3-dev \
+        libxcb-present-dev \
+        libxshmfence-dev \
+        libudev-dev \
+        libexpat1-dev \
+        LLVM \
+        gettext
+
+WORKDIR /source
+
+RUN mkdir install_dir & cd install_dir
+
+RUN wget http://archive.ubuntu.com/ubuntu/pool/main/x/x11proto-gl/x11proto-gl_1.4.16.orig.tar.gz
+RUN tar zxf x11proto-gl_1.4.16.orig.tar.gz
+RUN cd glproto-1.4.16
+RUN ./configure
+RUN make install
+RUN cd ..
+
+RUN wget http://mirror.gnomus.de/extra/os/i686/dri2proto-2.8-2-any.pkg.tar.xz
+RUN tar xf dri2proto-2.8-2-any.pkg.tar.xz
+RUN cd dri2proto
+RUN ./autogen.sh
+RUN make install
+RUN cd ..
+
+RUN wget http://xorg.freedesktop.org/archive/individual/proto/dri3proto-1.0.tar.gz
+RUN tar zxf dri3proto-1.0.tar.gz
+RUN cd dri3proto-1.0
+RUN ./configure
+RUN make install
+RUN cd ..
+
+RUN wget http://xorg.freedesktop.org/archive/individual/proto/presentproto-1.0.tar.gz
+RUN tar zxf presentproto-1.0.tar.gz
+RUN cd presentproto-1.0
+RUN ./configure
+RUN make install
+RUN cd ..
+
+RUN wget https://ftp.gnu.org/gnu/libtool/libtool-2.4.2.tar.gz
+RUN tar zxf libtool-2.4.2.tar.gz
+RUN cd libtool-2.4.2
+RUN ./configure
+RUN make install
+
+RUN wget ftp://ftp.freedesktop.org/pub/mesa/10.2.2/MesaLib-10.2.2.tar.gz
+RUN tar zxf MesaLib-10.2.2.tar.gz
+RUN cd Mesa-10.2.2
+RUN ./configure --enable-osmesa --with-osmesa-bits=32
+RUN make
+RUN make install
+
+

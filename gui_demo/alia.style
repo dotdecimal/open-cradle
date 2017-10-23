@@ -1,0 +1,2030 @@
+/* CRADLE SECTION - styling for content specific to the CRADLE-level UIs */
+
+/* used to fill background space when the UI doesn't take up the full window */
+background {
+    background: #0e0e12;
+}
+
+/* background status overlay */
+
+background-status-min {
+    background: #26262af0;
+    border-radius: 8px;
+    margin: 8px;
+}
+
+background-status {
+    background: #26262af0;
+    border-radius: 8px;
+    margin: 8px;
+    width: 400px;
+}
+background-status/content {
+    background: #0000;
+}
+background-status/heading {
+    font-family: helvetica;
+    font-size: 25;
+    font-bold: true;
+    color: #aaa;
+}
+background-status/job-count {
+    font-family: helvetica;
+    font-size: 16;
+    font-bold: true;
+    color: #88d;
+}
+background-status/job-type {
+    font-family: arial;
+    font-size: 15;
+    font-bold: false;
+    color: #aab;
+}
+background-status/transient-failure-count {
+    font-family: helvetica;
+    font-size: 14;
+    font-bold: false;
+    color: #cc8;
+}
+background-status/permanent-failure-count {
+    font-family: helvetica;
+    font-size: 14;
+    font-bold: false;
+    color: #d66;
+}
+
+animated-astroid {
+    stroke-width: 0.4;
+    stroke-length: 0.6;
+    period: 4000;
+    dark-time: 1400;
+    segment-count: 20;
+    color: #bbb;
+    max-alpha: 0.8;
+}
+
+logo {
+    color: #fff;
+    height: 24px;
+    scale: fit;
+    alignment: left;
+}
+
+/* GENERAL SECTION - general styling info */
+
+/ {
+    default-padding: 4px;
+    disable-padding: true;
+
+    font-family: arial;
+    font-size: 14;
+
+    selected-color: #ddd;
+    selected-background: #1059a4;
+
+    focus-color: #369;
+    focus-border-width: 1.3px;
+
+    color: #999;
+    background: #141418;
+
+    /* This is the minimum width allocated to form labels.
+       The default is small to avoid wasting space in the controls pane. */
+    form-label-size: 6em 2em;
+}
+
+done-cancel-buttons {
+}
+
+done-cancel-buttons/button {
+    color: #fff;
+    border-radius: 3px;
+    background: #cc6600;
+}
+
+done-cancel-buttons/button.hot {
+    color: #fff;
+    background: #ff9933;
+}
+
+close-buttons {
+}
+
+close-buttons/button {
+    color: #fff;
+    background: #660000;
+    border-radius: 3px;
+    margin: 0px 0px -5px;
+}
+
+close-buttons/button.hot {
+    color: #fff;
+    background: #990000;
+}
+
+close-buttons/button.depressed {
+    color: #fff;
+    background: #330000;
+}
+
+button {
+    background: #336699;
+    font-size: 14;
+    padding: -2px 4px;
+    border-radius: 3px;
+    color: #bbb;
+}
+button.hot {
+    background: #548dc6;
+}
+button.depressed {
+    background: #406080;
+}
+button.disabled {
+    background: #404040;
+}
+
+/* general-purpose content */
+content {
+    background: #141418;
+    default-padding: 4px 4px;
+}
+
+/* main header */
+
+header {
+    default-padding: 4px 6px;
+    background: #1d1e1e;
+    color: #999;
+    height: 55px;
+}
+header/separator {
+    color: #333;
+}
+header/active-task-group {
+    font-family: arial;
+    font-size: 18;
+    font-bold: true;
+    color: #aaa;
+}
+header/task-group {
+    font-family: arial;
+    font-size: 16;
+    font-bold: true;
+}
+header/task-group.hot {
+    background: #28282c;
+}
+header/task-group.depressed {
+    background: #303034;
+}
+header/title {
+    font-family: Gotham SSm A;
+    font-size: 20;
+    font-bold: true;
+    color: #ccc;
+}
+header/icon-row {
+    default-padding: 4px;
+}
+header/icon-row/icon-button {
+    size: 15px 15px;
+    descent: 2px;
+    border-width: 2px;
+    border-color: #0000;
+    border-radius: 0px;
+    background: #0000;
+    color: #bbb;
+}
+header/icon-row/icon-button.hot {
+    border-color: #222;
+    background: #222;
+    color: #ddd;
+}
+header/icon-row/icon-button.depressed {
+    border-color: #444;
+    background: #444;
+    color: #ddd;
+}
+
+header/realm {
+    font-family: arial;
+    font-size: 14;
+    color: #79878d;
+}
+
+header/user {
+    font-family: Gotham SSm A;
+    font-size: 15;
+    color: #bbb;
+}
+
+header/drop-down {
+    default-padding: 2px;
+    background: #202024;
+}
+header/drop-down.hot {
+    default-padding: 2px;
+    background: #202024;
+}
+header/drop-down.depressed {
+    default-padding: 2px;
+    background: #202024;
+}
+header/drop-down-list {
+    background: #244061;
+}
+header/drop-down-list/item {
+    default-padding: 4px;
+    background: #244061;
+    padding: 4px;
+    font-family: arial;
+    font-size: 14;
+    color: #aaa; 
+}
+header/drop-down-list/item.hot {
+    background: #336699;
+}
+header/drop-down-list/item.depressed {
+    background: #48484c;
+}
+header/drop-down-list/item.selected {
+    background: #b8cce4;
+    color: #222;
+}
+header/drop-down-list/disabled-item : drop-down-list/item {
+    background: #244061;
+    color: #888; 
+}
+
+/* general-purpose headings */
+
+section-heading {
+    color: #bfa681;
+    font-family: georgia;
+    font-size: 16;
+    font-bold: true;
+}
+
+subsection-heading {
+    color: #a0a6ac;
+    font-family: georgia;
+    font-size: 14;
+    font-bold: true;
+}
+
+form-section-heading : subsection-heading {
+    margin: 12px 0px 2px;
+}
+
+/* standard UI widgets */
+
+dashboard/separator {
+    color: #555;
+    width: 1px;
+}
+
+dashboard-header {
+    font-bold: true;
+    font-size: 16;
+    margin: -8px 0px -8px -7px;
+}
+
+dashboard-item {
+    margin: -2px 0px -2px 0px;
+}
+dashboard-item.hot {
+    background: #313b44;
+}
+dashboard-item.depressed {
+    background: #336699;
+}
+dashboard-item.selected {
+    background: #336699;
+}
+
+minor-buttons/button {
+    background: #456;
+    font-size: 14;
+    padding: -2px 4px;
+    color: #bbb;
+}
+minor-buttons/button.hot {
+    background: #567;
+}
+minor-buttons/button.depressed {
+    background: #789;
+}
+minor-buttons/button.disabled {
+    background: #404040;
+}
+
+color-chooser {
+    default-padding: 2px 2px;
+    padding: 2px 2px;
+    border-radius: 4px;
+}
+color-chooser.hot {
+    background: #202024;
+}
+color-chooser.depressed {
+    background: #303034;
+}
+color-chooser.selected {
+    background: #444;
+}
+
+color-display {
+    border-radius: 33%;
+    size: 14px 14px;
+    descent: 2px;
+}
+
+control {
+    size: 14px 14px;
+    descent: 2px;
+    background: #202024;
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+    color: #bbb;
+}
+control.hot {
+    background: #28282c;
+    border-color: #4d90fe;
+}
+control.depressed {
+    background: #38383c;
+    border-color: #4d90fe;
+}
+
+icon-button {
+    size: 14px 14px;
+    descent: 2px;
+    background: #00000000;
+    border-width: 1.2px;
+    border-color: #00000000;
+    border-radius: 3px;
+    color: #bbb;
+}
+icon-button.hot {
+    border-color: #4d90fe;
+}
+icon-button.depressed {
+    background: #56565c;
+    border-color: #4d90fe;
+}
+
+link {
+    color: #68a;
+}
+link.hot {
+    font-underline: true;
+    color: #79b;
+}
+link.depressed {
+    font-underline: true;
+    color: #8ac;
+}
+
+node-expander.normal {
+    background: #00000000;
+    border-color: #00000000;
+}
+
+progress-bar {
+    background: #202024;
+    outline-color: #00000000;
+    bar-color: #88d;
+}
+
+radio-button {
+    border-radius: 50%;
+}
+
+scrollbar {
+    color: #465055;
+}
+scrollbar.hot {
+    color: #909090;
+}
+scrollbar.depressed {
+    color: #999;
+}
+
+separator {
+    color: #555;
+    width: 1px;
+    padding: 8px;
+}
+
+slider {
+    track-color: #777;
+    thumb-color: #b8b8b8;
+}
+slider.hot {
+    thumb-color: #a8a8a8;
+}
+slider.depressed {
+    thumb-color: #989898;
+}
+
+/* task stack */
+
+background-task-header {
+    font-size: 14;
+    font-bold: true;
+    color: #888;
+    background: #303034;
+}
+background-task-header.hot {
+    background: #38383c;
+}
+background-task-header.depressed {
+    background: #404044;
+}
+background-task-header.selected {
+    background: #667;
+    color: #111;
+}
+background-task-header/level {
+    font-family: arial black;
+    font-size: 13;
+    font-bold: false;
+    color: #888;
+}
+
+foreground-task-header : background-task-header {
+    font-size: 15;
+    default-padding: 4px 4px;
+    background: #889999;
+    color: #000;
+}   
+foreground-task-header/level {
+    font-family: arial black;
+    font-size: 14;
+    font-bold: false;
+    color: #111;
+}
+
+/* used for CRADLE-level UI pages (app info, local settings, etc.) */
+
+top-level-ui/header : content {
+}
+top-level-ui/header/heading {
+    margin: 12px 0px 0px;
+    color: #888cbc;
+    font-family: georgia;
+    font-size: 16;
+    font-bold: true;
+}
+
+top-level-ui/content : content {
+}
+
+top-level-ui/footer : content {
+}
+
+/* used for top-level dialogs (sign in, realm selection) */
+
+top-level-background {
+    background: #252e32;
+}
+top-level-background/left-astroid {
+    color: #2c3c43;
+    gradient: #1f2629;
+    scale: fill;
+    alignment: right;
+}
+top-level-background/right-astroid : top-level-background/left-astroid {
+    alignment: left;
+}
+top-level-background/logo {
+    color: #fff;
+    height: 96px;
+    scale: fit;
+    alignment: center;
+}
+top-level-dialog {
+    background: #1d1e1e;
+    padding: 24px 40px;
+    default-padding: 4px 4px;
+    border-radius: 4px;
+    color: #7c8a8f;
+    width: 460px;
+}
+top-level-dialog/animated-astroid : /animated-astroid {
+    stroke-width: 0.5;
+}
+top-level-dialog/heading {
+    color: #ffffff;
+    margin: 0px 0px 8px;
+    font-family: gotham SSm A;
+    font-size: 26;
+}
+top-level-dialog/sub-heading {
+    color: #ffffff;
+    margin: 0px 0px 8px;
+    font-family: gotham SSm A;
+    font-size: 18;
+}
+top-level-dialog/status {
+    color: #aaa;
+    font-family: arial;
+    font-size: 14;
+    font-bold: true;
+}
+top-level-dialog/error-panel {
+    background: #501820;
+    color: #fff;
+    font-family: arial;
+    font-size: 12;
+    border-radius: 8px;
+    default-padding: 6px 6px;
+}
+top-level-dialog/item-list {
+    height: 360px;
+    color: #999;
+    background: #282e32;
+}
+top-level-dialog/item {
+    background: #282e32;
+    border-width: 3px;
+    border-color: #1c1e1f;
+    border-radius: 4px;
+}
+top-level-dialog/inactive-item {
+    background: #282e32;
+    color: #465055;
+    border-radius: 4px;
+}
+top-level-dialog/inactive-item/heading {
+    color: #465055;
+    font-family: georgia;
+    font-size: 14;
+    font-bold: true;
+}
+top-level-dialog/item.hot {
+    background: #2d373b;
+}
+top-level-dialog/item.depressed {
+    background: #2c2c30;
+}
+top-level-dialog/item/heading {
+    color: #bbb;
+    font-family: georgia;
+    font-size: 14;
+    font-bold: true;
+}
+top-level-dialog/item/id {
+    font-bold: true;
+}
+top-level-dialog/item.selected {
+    /*background: #889999;*/
+    /*color: #222;*/
+    background: #327699;
+}
+top-level-dialog/control {
+    background: #282e32;
+    size: 14px 14px;
+    descent: 2px;
+    border-width: 2px;
+    border-color: #282e32;
+    border-radius: 3px;
+    color: #bbb;
+}
+top-level-dialog/item.selected/heading : top-level-dialog/item/heading {
+    color: #b7c4c9;
+}
+top-level-dialog/primary-button {
+    color: #fff;
+    font-bold: true;
+    font-size: 13;
+    padding: 2px 6px;
+    /* Use a tiny amount of transparency so that text renders correctly. */
+    background: #6292bdfe;
+    gradient: #4e7f99fe;
+    border-radius: 4px;
+}
+top-level-dialog/button {
+    color: #ccc;
+    font-bold: true;
+    font-size: 13;
+    padding: 2px 6px;
+    background: #303232;
+    border-radius: 4px;
+}
+
+/* side panel expanders */
+panel-expander {
+    size: 16px 16px;
+    background: #1c1c20;
+    color: #aaa;
+    border-width: 0px;
+    border-radius: 0px;
+}
+panel-expander.hot {
+    background: #303034;
+}
+panel-expander.depressed {
+    background: #404044;
+}
+
+/* CONTROLS SECTION - styling for content specific to the controls pane */
+
+control-panel {
+    background: #0c0c10;
+}
+control-panel/background {
+    background: #0c0c10;
+}
+control-panel/content {
+    background: #141418;
+    padding: -4px;
+}
+control-panel/scrollable-content {
+    background: #141418;
+}
+
+/* various common element styles */
+
+symbol {
+    font-family: Arial Unicode MS;
+}
+
+date {
+    color: #a0a6ac;
+    font-family: helvetica;
+    font-size: 14;
+    font-bold: true;
+}
+
+time {
+    color: #999;
+    font-family: helvetica;
+    font-size: 12;
+}
+
+value {
+    color: #aaa;
+    font-family: arial;
+    font-size: 14;
+    font-bold: false;
+}
+
+units {
+    font-size: 12;
+    font-bold: true;
+}
+
+/* control blocks */
+
+control-block {
+}
+
+control-block/separator {
+    color: #0000;
+    width: 1px;
+    padding: 2px;
+}
+control-block/content : /content {
+}
+
+control-block/inactive-header {
+    margin: 0px 0px -6px 0px;
+    color: #aaa;
+    font-family: arial;
+    font-size: 16;
+    font-bold: true;
+    background: #1C1F24;
+}
+control-block/inactive-header/summary : value {
+}
+control-block/inactive-header.hot {
+    background: #313b44;
+}
+control-block/inactive-header.depressed {
+    background: #28282c;
+}
+
+control-block/inactive-content {
+    background: #1C1F24;
+}
+control-block/inactive-content.hot {
+    background: #313b44;
+}
+control-block/inactive-content.depressed {
+    background: #28282c;
+}
+
+control-block/active-header : control-block/inactive-header {
+    margin: 0px 0px 0px 0px;
+    background: #336699;
+    color: #b8b8b8;
+}
+control-block/active-menu {
+    background: #324a63;
+    color: #b8b8b8;
+}
+control-block/active-content  : control-block/inactive-content {
+    background: #141418;
+}
+
+/* item lists */
+
+item-list {
+    border-width: 0px 0px 1px;
+    border-color: #444;
+}
+
+item-list/header {
+    margin: 4px 0px 2px 0px;
+    color: #aaa;
+    font-family: arial;
+    font-size: 16;
+    font-bold: true;
+    background: #141418;
+    border-width: 0px 0px 1px;
+    border-color: #444;
+}
+item-list/header.hot {
+    background: #313b44;
+}
+item-list/header.depressed {
+    background: #28282c;
+}
+
+item-list/expanded-header : item-list/header {
+    background: #162D4A;
+    color: #b8b8b8;
+    border-width: 0px 0px 1px;
+    border-color: #444;
+}
+item-list/expanded-header.hot {
+    background: #1c3350;
+}
+item-list/expanded-header.depressed {
+    background: #223956;
+}
+
+item-list/options  : item-list/inactive-block-content {
+    background: #151D2A;
+    margin: 0px 0px 8px 0px;
+}
+item-list/options/control : control {
+    background: #2B3C52;
+    border-color: #2B3C52;
+}
+item-list/options/control.hot {
+    background: #404F64;
+    border-color: #404F64;
+}
+item-list/options/control.depressed {
+    background: #566375;
+    border-color: #566375;
+}
+
+item-list/group-heading {
+    margin: 0px 0px 0px 0px;
+    padding: -2px 0px;
+    color: #789BBA;
+    font-family: arial;
+    font-size: 16;
+    font-bold: true;
+}
+
+item-list/inactive-item {
+    margin: 0px 0px 0px 12px;
+    padding: -2px 0px;
+}
+item-list/inactive-item/header {
+    color: #999;
+    font-family: arial;
+    font-size: 14;
+    font-bold: true;
+}
+item-list/inactive-item/info {
+    margin: -4px 0px -4px 4px;
+}
+item-list/inactive-item/options {
+    background: #1c1c20;
+}
+
+item-list/active-item : item-list/inactive-item {
+    background: #1c1c20;
+}
+item-list/active-item/header : item-list/inactive-item/header {
+}
+item-list/active-item/header : item-list/inactive-item/header {
+}
+item-list/active-item/options {
+    background: #202024;
+}
+
+item-list/creation-item {
+    margin: 0px 0px 0px 12px;
+}
+item-list/creation-item/header {
+    padding: 4px 0px;
+    background: #1d2029;
+    font-family: arial;
+    font-size: 14;
+    font-bold: true;
+}
+item-list/creation-item/header.hot {
+    background: #313b44;
+}
+item-list/creation-item/header.depressed {
+    background: #28282c;
+}
+item-list/creation-item/content {
+    background: #1c1c20;
+}
+
+item-list/subtask-item {
+    margin: 0px 0px 0px 12px;
+    background: #1d2029;
+    padding: 4px 0px;
+}
+item-list/subtask-item.hot {
+    background: #313b44;
+}
+item-list/subtask-item.depressed {
+    background: #28282c;
+}
+item-list/subtask-item/heading {
+    font-family: arial;
+    font-size: 14;
+    font-bold: true;
+}
+
+item-list/object-id {
+    font-family: arial;
+    font-size: 14;
+    font-bold: true;
+    color: #bbb;
+}
+
+/* editable content */
+
+editable-content : content {
+}
+editable-content.hot {
+    background: #1c1c20;
+}
+editable-content.depressed {
+    background: #242428;
+}
+
+content-dialog : content {
+    background: #1c1c20;
+}
+
+/* selectable options */
+
+selectable-option {
+    default-padding: 2px 2px;
+    color: #aaa;
+    padding: 2px 2px;
+}
+selectable-option.hot {
+    background: #313b44;
+}
+selectable-option.depressed {
+    background: #28282c;
+}
+selectable-option.selected {
+    background: #17365d;
+}
+
+structure-option {
+    background: #28282c;
+}
+structure-option.selected {
+    background: #1d2029;
+}
+structure-option.hot {
+    background: #313b44;
+}
+
+/* drop down lists */
+
+drop-down-button {
+    background: #202024;
+    border-color: #00000000;
+}
+drop-down-button.hot {
+    background: #404044;
+    border-color: #00000000;
+}
+drop-down-button.depressed {
+    background: #505054;
+    border-color: #00000000;
+}
+drop-down {
+    background: #202024;
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+}
+drop-down.hot {
+    background: #404044;
+    border-color: #325B84;
+    color: #FFF;
+}
+drop-down.depressed {
+    background: #505054;
+    border-color: #cc6600;
+    color: #FFF;
+}
+drop-down-list {
+    background: #202024;
+    border-width: 1.2px;
+    border-color: #313b44;
+}
+drop-down-list/item {
+    background: #202024;
+    border-width: 1.2px;
+    border-color: #202024;
+}
+drop-down-list/item.hot {
+    background: #404044;
+    border-width: 1.2px;
+    border-color: #cc6600;
+    border-radius: 3px;
+}
+drop-down-list/item.depressed {
+    background: #505054;
+    color: #325B84;
+    border-color: #cc6600;
+    border-radius: 3px;
+    color: #FFF;
+}
+drop-down-list/item.selected {
+    background: #b8cce4;
+    color: #222;
+    border-color: #b8cce4;
+}
+drop-down-list/disabled-item {
+    color: #666;
+}
+
+ddl-heading {
+    color: #486c8c;
+    font-family: georgia;
+    font-size: 15;
+    font-bold: true;
+}
+ddl-special-heading {
+    color: #8c486c;
+    font-family: georgia;
+    font-size: 15;
+    font-bold: true;
+}
+ddl-subtask {
+    margin: 0px;
+}
+ddl-subtask/item {
+    background: #2d3039;
+    default-padding: 2px 2px;
+}
+ddl-subtask/item.hot {
+    background: #292c35;
+}
+ddl-subtask/item.depressed {
+    background: #353841;
+}
+ddl-subtask/item/heading : section-heading {
+    color: #a0a6ac;
+    font-size: 14;
+    font-bold: true;
+}
+ddl-subtask/item/subheading : subsection-heading {
+    margin: 0px
+}
+
+/* drop downs for adding items */
+
+add-item-drop-down : button {
+    background: #353841;
+}
+add-item-drop-down.hot : button.hot {
+}
+add-item-drop-down.depressed : button.depressed {
+}
+
+/* panels for items that aren't collapsible */
+
+noninteractive-item-panel {
+    background: #1C1922;
+}
+
+/* panels for opening subtasks */
+
+subtask-panel {
+    background: #1d2029;
+    font-size: 13;
+}
+subtask-panel.hot {
+    background: #292c35;
+}
+subtask-panel.depressed {
+    background: #353841;
+}
+subtask-panel.selected {
+    background: #1d2029;
+    /*border-radius: 8px;*/
+}
+subtask-panel/heading : section-heading {
+    color: #a0a6ac;
+    font-size: 14;
+    font-bold: true;
+}
+
+/* panels for interacting with open subtasks */
+
+subtask-interface-panel {
+    background: #202028;
+}
+
+/* DISPLAY SECTION - styling for content specific to the display pane */
+
+empty-display {
+    background: #0e0e12;
+    default-padding: 4px 4px;
+}
+
+rulers {
+    background: #0c0c10;
+    color: #888; 
+}
+rulers/junction {
+    font-family: arial;
+    font-size: 11;
+}
+
+/* view selection controls */
+
+view-composition-selection {
+    background: #141418;
+}
+view-composition-selection/item {
+    default-padding: 4px;
+    background: #1c1c20;
+    color: #aaa;
+    border-radius: 6px;
+}
+view-composition-selection/item.hot {
+    background: #242428;
+}
+view-composition-selection/item.depressed {
+    background: #343438;
+}
+view-composition-selection/item.selected {
+    background: #a0c4d3;
+    color: #111;
+}
+
+view-selector {
+    font-bold: true;
+    color: #aaa;
+    background: #303034;
+}
+view-selector.hot {
+    background: #38383c;
+}
+view-selector.depressed {
+    background: #404044;
+}
+view-selector.selected {
+    background: #808096;
+    color: #222;
+}
+
+/* overlays */
+
+overlay {
+    default-padding: 4px 4px;
+    background: #141418c0;
+}
+overlay/heading {
+    font-family: helvetica;
+    font-size: 25;
+    font-bold: true;
+}
+overlay/label {
+    font-family: arial;
+    font-size: 13;
+    font-bold: true;
+}
+overlay/value {
+    font-family: monaco;
+    font-size: 14;
+    font-bold: true;
+}
+overlay/units {
+    font-family: arial;
+    font-size: 13;
+}
+
+transparent-overlay {
+    margin: 4px 4px;
+    border-radius: 6px 6px;
+    default-padding: 4px 4px;
+    background: #1117;
+    width: 7em;
+}
+transparent-overlay/heading {
+    font-family: helvetica;
+    font-size: 15;
+    font-bold: true;
+}
+
+clear-letter-overlay {
+    default-padding: 1px 2px;
+    width: 1em;
+}
+clear-letter-overlay/heading {
+    font-family: helvetica;
+    font-size: 15;
+    font-bold: true;
+}
+
+/* used when the display section shows normal UI content */
+
+display-content {
+    background: #0e0e12;
+    default-padding: 4px 4px;
+    padding: 16px 16px;
+}
+display-content/control {
+    size: 14px 14px;
+    descent: 2px;
+    background: #1c1c20;
+    border-width: 1.2px;
+    border-color: #1c1c20;
+    border-radius: 3px;
+    color: #bbb;
+}
+display-content/control.hot {
+    background: #242428;
+    border-color: #4a88fa;
+}
+display-content/control.depressed {
+    background: #343438;
+    border-color: #4a88fa;
+}
+
+/* panels for enter prescription statements for a structure or point */
+
+prescription-panel {
+    background: #1c1c20;
+    /* These can get pretty crowded, so don't waste any space. */
+    /* form-label-size: 0em 0em; */
+}
+prescription-panel/form-label {
+    background: #1c1c20;
+    font-family: arial;
+    font-size: 12;
+    font-bold: true;
+}
+prescription-panel/heading {
+    color: #a0a6ac;
+    font-family: georgia;
+    font-size: 14;
+    font-bold: true;
+}
+prescription-panel/heading/drop-down-button {
+    background: #1c1c20;
+    border-color: #00000000;
+}
+prescription-panel/heading/drop-down-button.hot {
+    background: #404044;
+    border-color: #00000000;
+}
+prescription-panel/heading/drop-down-button.depressed {
+    background: #505054;
+    border-color: #00000000;
+}
+prescription-panel/heading/drop-down {
+    background: #1c1c20;
+}
+prescription-panel/heading/drop-down.hot {
+    background: #404044;
+}
+prescription-panel/heading/drop-down.depressed {
+    background: #505054;
+}
+prescription-panel/heading/drop-down-list {
+    background: #202024;
+    font-family: arial;
+    font-size: 14;
+    font-bold: false;
+    color: #aaa;
+}
+prescription-panel/heading/drop-down-list/item.selected {
+    background: #b8cce4;
+    color: #222;
+}
+prescription-panel/heading/drop-down-list/item.hot {
+    background: #404044;
+}
+prescription-panel/heading/drop-down-list/item.depressed {
+    background: #505054;
+}
+
+/* Patient Preview Section - styling for the patient preview */
+
+preview-panel1 {
+    background: #202024;
+    font-size: 20;
+}
+patient-preview {
+    font-size: 20;
+    font-bold: true;
+}
+patient-preview-bg {
+    background: #202024;
+}
+preview-info {
+    font-size: 15;
+    font-bold: true;
+}
+preview-info-item {
+    font-size: 15;
+    font-bold: false;
+}
+plan-panel {
+    background: #303034;
+}
+
+/* Import Section - styling for the imports */
+
+import-bg {
+    background: #202024;
+    padding: 16px 16px;
+    font-size: 14;    
+}
+import-structure-bg {
+    background: #1c1c20;
+    padding: 16px 16px;
+    font-size: 14;   
+}
+import-patient-items-bg {
+    background: #141418;
+    default-padding: 4px 4px;
+    font-size: 14;  
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;  
+}
+import-structure-bg/control {
+    border-width: 1.2px;
+    border-color: #787887;
+    border-radius: 3px;
+}
+import-list-view {
+ background: #202024;   
+}
+import-title {
+    font-size: 20;
+    font-bold: true;
+}
+import-patient-info {
+    font-size: 15;
+    font-bold: false;
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+}
+import-patient-view {
+    background: #202024;
+}
+import-patient-view/heading {
+    font-size: 18;
+}
+import-patient-view/full-control {  
+    border-width: 1.2px;
+    border-color: #000;
+    background: #000;
+    border-radius: 0px;
+}
+import-patient-view/control-item {
+    default-padding: 4px 4px;
+    margin: 0px 0px 0px 0px;
+    background: #33363e;
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+}
+import-patient-view/control-item.hot {
+    color: #FFF;
+    background: #313b44;
+    border-color: #325B84;
+}
+import-patient-view/control-item.depressed {
+    color: #FFF;
+    background: #28282c;
+    border-color: #325B84;
+}
+
+import-patient-item-view {
+    background: #000;
+    padding-left: 15px;
+}
+import-patient-item-view/heading {
+    font-size: 16;
+}
+import-patient-item-view/control-body {
+    background: #FFF;
+}
+import-patient-item-view/control-item {
+    default-padding: 4px 4px;
+    margin: 0px 0px 0px 0px;
+    background: #202024;
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+    
+}
+import-patient-item-view/control-item.hot {
+    color: #FFF;
+    background: #313b44;
+    border-color: #325B84;
+}
+import-patient-item-view/control-item.depressed {
+    color: #FFF;
+    background: #28282c;
+    border-color: #325B84;
+}
+import-patient-item-view/full-control {
+    border-width: 1.2px;
+    border-color: #313b44;
+    background: #313b44;
+    border-radius: 0px;
+    default-padding: 0px 0px;
+}
+import-patient-item-desc {
+    background: #202024;
+    padding-left: 15px;
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+}
+import-patient-view {
+    background: #202024;
+}
+import-patient-view/heading {
+    font-size: 18;
+}
+import-patient-view/full-control {  
+    border-width: 1.2px;
+    border-color: #000;
+    background: #000;
+    border-radius: 0px;
+}
+import-patient-view/control-item {
+    default-padding: 4px 4px;
+    margin: 0px 0px 0px 0px;
+    background: #33363e;
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+}
+import-patient-view/control-item.hot {
+    color: #FFF;
+    background: #313b44;
+    border-color: #325B84;
+}
+import-patient-view/control-item.depressed {
+    color: #FFF;
+    background: #28282c;
+    border-color: #325B84;
+}
+
+import-patient-item-view {
+    background: #000;
+    padding-left: 15px;
+}
+import-patient-item-view/heading {
+    font-size: 16;
+}
+import-patient-item-view/control-body {
+    background: #FFF;
+}
+import-patient-item-view/control-item {
+    default-padding: 4px 4px;
+    margin: 0px 0px 0px 0px;
+    background: #202024;
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+    
+}
+import-patient-item-view/control-item.hot {
+    color: #FFF;
+    background: #313b44;
+    border-color: #325B84;
+}
+import-patient-item-view/control-item.depressed {
+    color: #FFF;
+    background: #28282c;
+    border-color: #325B84;
+}
+import-patient-item-view/full-control {
+    border-width: 1.2px;
+    border-color: #313b44;
+    background: #313b44;
+    border-radius: 0px;
+    default-padding: 0px 0px;
+}
+import-patient-item-desc {
+    background: #202024;
+    padding-left: 15px;
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+}
+
+/* INTENT UI */
+
+intent-multiline {
+
+}
+
+intent-multiline/control {
+    size: 14px 14px;
+    descent: 2px;
+    background: #202024;
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+    color: #bbb;
+    margin: 0px 30px 0px 0px;
+}
+intent-multiline/control.hot {
+    background: #28282c;
+    border-color: #4d90fe;
+}
+
+/* MCO UI */
+
+mco-slider {
+    track-color: #444;
+    range-color: #666;
+    bound-color: #bbb;
+    value-color: #6F9BBA;
+}
+mco-slider.hot {
+    bound-color: #c8c8c8;
+}
+mco-slider.depressed {
+    bound-color: #d8d8d8;
+}
+
+mco-current-value {
+    color: #7895AD;
+}
+
+/* image calibration task */
+
+tissue-list {
+    default-padding: 4px 4px;
+}
+tissue-list/header {
+    font-family: helvetica;
+    font-size: 15;
+    font-bold: true;
+}
+tissue-list/accordion-header {
+    font-bold: true;
+    color: #aaa;
+    background: #242428;
+}
+tissue-list/accordion-header.hot {
+    background: #38383c;
+}
+tissue-list/accordion-header.depressed {
+    background: #404044;
+}
+tissue-list/accordion-header.selected {
+    background: #808096;
+    color: #222;
+}
+tissue-list/sample-list/header {
+    font-family: helvetica;
+    font-size: 14;
+    font-bold: true;
+}
+tissue-list/sample-list/accordion-header {
+    font-bold: true;
+    color: #aaa;
+    background: #18181c;
+}
+tissue-list/sample-list/accordion-header.hot {
+    background: #242428;
+}
+tissue-list/sample-list/accordion-header.depressed {
+    background: #303034;
+}
+tissue-list/sample-list/accordion-header.selected {
+    background: #303060;
+    color: #aaa;
+}
+
+image-calibration-graph {
+    background: #101014;
+    draw-points: true;
+    point-diameter: 6px;
+    hole-diameter: 0px;
+    highlight-diameter: 16px;
+}
+image-calibration-graph/curve {
+    color: #aaa;
+}
+
+/* calendar UI */
+
+calendar {
+    background: #0e0e12;
+}
+calendar/header {
+    background: #1c1c20;
+    color: #a0a6ac;
+    font-family: arial;
+    font-size: 15;
+    font-bold: true;
+}
+calendar/month-label {
+    color: #a0a6ac;
+    font-family: georgia;
+    font-size: 18;
+    font-bold: true;
+}
+calendar/any-day {
+    width: 120px;
+    height: 120px;
+    color: #a0a6ac;
+    font-family: georgia;
+    font-size: 18;
+    font-bold: true;
+    border-radius: 10px;
+    margin: 4px;
+}
+calendar/unavailable-day : calendar/any-day {
+    background: #242428;
+    color: #80868c;
+    font-size: 16;
+    font-bold: true;
+}
+calendar/odd-month : calendar/any-day {
+    background: #24242d;
+}
+calendar/odd-month.hot {
+    background: #2c2c35;
+}
+calendar/odd-month.depressed {
+    background: #34343d;
+}
+calendar/even-month : calendar/any-day {
+    background: #292928;
+}
+calendar/even-month.hot {
+    background: #313130;
+}
+calendar/even-month.hot {
+    background: #393938;
+}
+calendar/day-number {
+    border-radius: 10px 10px 0px 0px;
+    color: #a0a6ac;
+    background: #0000;
+    font-family: georgia;
+    font-size: 17;
+    font-bold: true;
+}
+
+/* notifications */
+notification-overlay {
+    background: #244061e0;
+    border-radius: 4px;
+    margin: 4px 4px;
+    padding: 4px 4px;
+    width: 20em;
+    height: 4em;
+    color: #ddd;
+}
+notification-overlay/heading {
+    color: #eee;
+    font-family: georgia;
+    font-size: 14;
+    font-bold: true;
+}
+notification-overlay/link {
+    color: #bbd;
+}
+notification-overlay/link.hot {
+    font-underline: true;
+    color: #bbd;
+}
+notification-overlay/link.depressed {
+    font-underline: true;
+    color: #cce;
+}
+
+error-notification-overlay : notification-overlay {
+}
+
+/* error and warning panels */
+
+warning-panel {
+    background: #202028;
+}
+validation-error-panel {
+    background: #501820;
+    color: #aaa;
+    font-family: arial;
+    font-size: 13;
+    font-bold: true;
+    border-radius: 4px;
+    default-padding: 4px 4px;
+}
+
+collapsible-panel {
+    margin: 0px 0px 0px 0px;
+    background: #1d2029;
+    padding: 4px 0px;
+}
+collapsible-panel.hot {
+    background: #313b44;
+}
+collapsible-panel.depressed {
+    background: #28282c;
+}
+
+subform {
+    form-label-size: 0em 0em;
+}
+
+imports-ui-bg {
+    /*background: #F00;*/
+    /*background: #141418;*/
+    /*border-radius: 3px;*/
+    border-width: 1.2px;
+    border-color: #313b44;
+    default-padding: 0px;
+}
+
+control-item {
+    background: #252e32;
+    border-width: 1.2px;
+    border-color: #252e32;
+    default-padding: 0px;
+}
+
+control-item-selected {
+    background: #252e32;
+    border-width: 1.8px;
+    border-color: #1059a4;
+    default-padding: 0px;
+}
+
+control-item/heading {
+    font-family: arial;
+    font-size: 14;
+    font-bold: true;
+    border-width: 1.2px;
+    background: #252e32;
+    default-padding: 4px;
+}
+
+control-item/heading.hot {
+    background: #2d383d;
+    border-width: 1.2px;
+    border-color: #2c3c43;
+    color: #FFF;
+}
+
+control-item-info {
+    background: #1c1e1f;
+    /*background: #2d383d;*/
+    /*border-width: 1.2px;*/
+    border-color: #252e32;
+    /*margin: 0px 0px 0px 25px;*/
+    padding: 8px 0px 0px 6px;
+}
+
+control-list {
+    margin: 0px 0px 0px 10px;
+    background: #252e32;
+    /*background: #4e5a5f;*/
+    border-width: 1.2px;
+    border-color: #2c3c43;
+}
+
+control-list/heading {
+    font-family: arial;
+    font-size: 14;
+    font-bold: true;
+    /*background: #1c1e1f;*/
+    background: #424f55;
+    border-width: 1.2px;
+    default-padding: 4px;
+}
+
+control-list/heading.hot {
+    background: #2d383d;
+    border-width: 1.2px;
+    border-color: #2c3c43;
+    color: #FFF;
+}
+
+/* right side controls */
+/*
+control-list/content {
+    background: #313b44;
+}
+
+control-list/control-item {
+    margin: 0px 0px 0px 0px;
+    background: #2c3c43;
+    padding: 4px 0px;
+}
+control-list/control-item.hot {
+    background: #313b44;
+}
+control-list/control-item.depressed {
+    background: #28282c;
+}
+
+control-list/heading {
+    font-family: arial;
+    font-size: 14;
+    font-bold: true;
+    background: #313b44;
+}
+
+control-list.hot {
+    background: #F00;
+}
+
+control-list/heading.depressed {
+    background: #27292a;
+}
+control-list-item {
+    margin: 0px 0px 0px 15px;
+    background: #F00;
+}
+control-list-info {
+    margin: 0px 0px 0px 0px;
+    background: #252e32;
+}
+control-list-info/control-item {
+    margin: 0px 0px 0px 0px;
+    background: #2c3c43;
+    padding: 4px 0px;
+}
+control-list-child {
+    margin: 0px 0px 0px 0px;
+    background: #F00;
+    border-width: 1.2px;
+    border-color: #0F0;
+}
+control-list-child/control-item {
+    margin: 0px 0px 0px 0px;
+    background: #F00;
+    padding: 4px 0px;
+}
+control-list-child/control-item.hot {
+    background: #313b44;
+}
+control-list-child/control-item.depressed {
+    background: #28282c;
+}
+
+control-list-child/heading {
+    font-family: arial;
+    font-size: 14;
+    font-bold: true;
+    background: #F00;
+}
+
+imports-ui {
+    background: #F00;
+    default-padding: 4px 4px;
+    font-size: 14;  
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+    default-padding: -4px;
+    margin: 0px -1px -1px 2px;
+}
+
+imports-ui/content {
+    background: #141418;
+    default-padding: 5px;
+    font-size: 14;  
+    border-width: 1.2px;
+    border-color: #313b44;
+    border-radius: 3px;
+}
+
+imports-ui-bg {
+    background: #141418;
+    border-radius: 3px;
+    border-width: 1.2px;
+    border-color: #313b44;
+    default-padding: 0px;
+}
+
+imports-ui-bg-child {
+    margin: 0px 0px 0px 10px;
+    border-width: 1.2px;
+    default-padding: 0px;
+}*/
+
+demo/ {
+    default-padding: 4px;
+
+    selected-color: #ddd;
+    selected-background: #1059a4;
+
+    focus-color: #369;
+    focus-border-width: 1.3px;
+
+    color: #999;
+}
+
+demo/separator {
+    color: #444;
+    width: 1px;
+    padding: 10px;
+}
+
+demo/background {
+    default-padding: 0px 0px;
+}
+
+demo/content {
+    default-padding: 4px 4px;
+    margin: 8px 12px 16px 4px;
+}
+
+demo/demo-ui {
+    background: #1c1c20;
+}
+
+demo/tree-heading {
+    font-family: arial;
+    font-size: 15;
+    font-bold: true;
+}
+
+demo/h1 {
+    font-family: helvetica;
+    font-size: 39;
+    font-bold: true;
+    color: #888;
+}
+
+demo/h2 {
+    font-family: helvetica;
+    font-size: 32;
+    font-bold: true;
+}
+
+demo/h3 {
+    font-family: helvetica;
+    font-size: 25;
+    font-bold: true;
+    margin: 8px 0px 0px;
+}
+
+demo/footer {
+    background: #36363c;
+    border-width: 1px 0px 0px 0px;
+    border-color: #555;
+    color: #999;
+}
+demo/footer/link {
+    color: #88c;
+}
+demo/footer/link.hot {
+    font-underline: true;
+    color: #99d;
+}
+demo/footer/link.depressed {
+    font-underline: true;
+    color: #aae;
+}
+
+demo/tab-strip {
+    default-padding: 7px 4px;
+    add-background-tab: true;
+}
+demo/tab-strip/tab {
+    default-padding: 4px 5px;
+    border-width: 0px 0px 1px 0px;
+    padding: 1px 1px 0px 1px;
+    border-color: #444;
+    border-radius: 4px 4px 0px 0px;
+    color: #68a;
+}
+demo/tab-strip/tab.hot {
+    background: #333;
+}
+demo/tab-strip/tab.depressed {
+    background: #383838;
+}
+demo/tab-strip/tab.selected {
+    color: #aaa;
+    border-width: 1px 1px 0px 1px;
+    padding: 0px 0px 1px 0px;
+}
+
+demo/accordion-header {
+    font-bold: true
+    color: #aaa
+    background: #383838;
+}
+demo/accordion-header.hot {
+    background: #404040;
+}
+demo/accordion-header.depressed {
+    background: #484848;
+}
+demo/accordion-header.selected {
+    background: #889;
+    color: #222;
+}
+
+demo/pill-tabs/tab-strip {
+    default-padding: 7px 4px;
+}
+demo/pill-tabs/tab-strip/tab {
+    default-padding: 4px 5px;
+    border-radius: 4px
+    color: #889;
+}
+demo/pill-tabs/tab-strip/tab.hot {
+    background: #333;
+}
+demo/pill-tabs/tab-strip/tab.depressed {
+    background: #383838;
+}
+demo/pill-tabs/tab-strip/tab.selected {
+    background: #889;
+    color: #222;
+}
+
+demo/button {
+    background: #458;
+    padding: 0px 4px;
+    color: #ccc;
+    border-radius: 4px;
+}
+demo/button.hot {
+    background: #485888;
+}
+demo/button.depressed {
+    background: #569;
+}
+
+demo/radio-button {
+    border-radius: 50%;
+}
+
+demo/node-expander.normal {
+    background: #00000000;
+    border-color: #00000000;
+}
+demo/drop-down-button {
+    background: #00000000;
+    border-color: #00000000;
+}
+
+demo/table {
+    font-family: Consolas;
+    font-size: 13;
+    border-color: #222226;
+    default-padding: 0px 6px;
+    background: #222226;
+    color: #888
+    border-left-width: 2px;
+}
+demo/table/first-row {
+    border-top-width: 0px;
+}
+demo/table/first-column {
+    font-size: 13;
+    background: #28282e;
+    border-right-width: 1px;
+    color: #606060
+}
+
+demo/layout-demo-label {
+    font-bold: true;
+    font-size: 14;
+    background: #0000;
+    color: #ddd; 
+}

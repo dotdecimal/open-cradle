@@ -1,0 +1,17 @@
+#################
+## Documentation
+#################
+
+html/
+*generate.bat
+*Shortcut.lnk
+*.vtk
+cradle/Unit_Tests.dir/
+CMakeFiles/*
+
+#################
+## From merging
+#################
+
+*-orig.*
+*.orig
