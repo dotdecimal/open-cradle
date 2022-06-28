@@ -212,33 +212,37 @@ let structure_type_info_definition_instance app_id label assignments s =
 (* Generate the C++ code to determine the upgrade type. *)
 let structure_upgrade_type_definition_instance app_id label assignments s =
     if not (structure_is_internal s) then
-    "cradle::upgrade_type get_upgrade_type(" ^
-        s.structure_id ^
-        (resolved_template_parameter_list assignments s.structure_parameters) ^
-        " const&, std::vector<std::type_index> parsed_types)" ^
-    "{ " ^
-        "using cradle::get_explicit_upgrade_type;" ^
-        "using cradle::get_upgrade_type;" ^         
-        "cradle::upgrade_type type = get_explicit_upgrade_type(" ^ 
+        "cradle::upgrade_type get_upgrade_type(" ^
             s.structure_id ^
-            (resolved_template_parameter_list assignments s.structure_parameters) ^ "()); " ^
-    if (List.length s.structure_fields > 0) then
-    (String.concat ""
-        (List.map
-            (fun f ->
-                "if(std::find(parsed_types.begin(), parsed_types.end(), std::type_index(typeid(" ^  
-                        (cpp_code_for_parameterized_type assignments f.field_type) ^ 
-                        "()))) == parsed_types.end()) { " ^  
-                    "parsed_types.push_back(std::type_index(typeid(" ^  
-                        (cpp_code_for_parameterized_type assignments f.field_type) ^ "()))); " ^   
-                    "type = cradle::merged_upgrade_type(type, get_upgrade_type(" ^  
-                        (cpp_code_for_parameterized_type assignments f.field_type) ^ 
-                        "(), parsed_types)); } " 
-                )
-        s.structure_fields)) ^
-        "return type; }"
-    else
-        "return type; }"
+            (resolved_template_parameter_list assignments s.structure_parameters) ^
+            " const&, std::vector<std::type_index> parsed_types)" ^
+        "{ " ^
+            "using cradle::get_explicit_upgrade_type;" ^
+            "using cradle::get_upgrade_type;" ^         
+            "cradle::upgrade_type type = get_explicit_upgrade_type(" ^ 
+                s.structure_id ^
+                (resolved_template_parameter_list assignments s.structure_parameters) ^ "()); " ^
+        (match s.structure_super with
+            Some super ->
+                "type = cradle::merged_upgrade_type(type, get_upgrade_type(" ^ super ^ "(), parsed_types));"
+            | None -> "") ^
+        if (List.length s.structure_fields > 0) then
+            (String.concat ""
+                (List.map
+                    (fun f ->
+                        "if(std::find(parsed_types.begin(), parsed_types.end(), std::type_index(typeid(" ^  
+                                (cpp_code_for_parameterized_type assignments f.field_type) ^ 
+                                "()))) == parsed_types.end()) { " ^  
+                            "parsed_types.push_back(std::type_index(typeid(" ^  
+                                (cpp_code_for_parameterized_type assignments f.field_type) ^ "()))); " ^   
+                            "type = cradle::merged_upgrade_type(type, get_upgrade_type(" ^  
+                                (cpp_code_for_parameterized_type assignments f.field_type) ^ 
+                                "(), parsed_types)); } " 
+                        )
+                s.structure_fields)) ^
+                "return type; }"
+        else
+            "return type; }"
     else
         ""
 
@@ -257,7 +261,7 @@ let structure_upgrade_value_definition_api_instance app_id label assignments s =
             "return x; " ^
         "}"
 
-(* If structure has no fields then the value_map of fields should not be created becuase
+(* If structure has no fields then the value_map of fields should not be created because
     it will be empty and unused causing compiler warnings. *)
 let structure_upgrade_value_definition_instance_no_fields app_id label assignments s =
     "void auto_upgrade_value(" ^
@@ -273,7 +277,12 @@ let structure_upgrade_value_definition_instance_with_fields app_id label assignm
     s.structure_id ^
     (resolved_template_parameter_list assignments s.structure_parameters) ^
     " *x, cradle::value const& v)" ^
-    "{  auto const& fields = cradle::cast<cradle::value_map>(v); " ^
+    "{" ^
+        (match s.structure_super with
+            Some super ->
+                "upgrade_value(&as_" ^ super ^ "(*x), v);"
+            | None -> "") ^
+    "  auto const& fields = cradle::cast<cradle::value_map>(v); " ^
         (String.concat ""
             (List.map
                 (fun f ->
@@ -281,7 +290,7 @@ let structure_upgrade_value_definition_instance_with_fields app_id label assignm
                     "&x->" ^ f.field_id ^ ", " ^
                     "fields, " ^
                     "\"" ^ f.field_id ^ "\");")
-            s.structure_fields)) ^
+                s.structure_fields)) ^
     "} " ^
     (structure_upgrade_value_definition_api_instance app_id label assignments s)
 

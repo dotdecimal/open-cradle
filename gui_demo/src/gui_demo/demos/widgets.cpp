@@ -70,10 +70,11 @@ DEFINE_DEMO(
     {
         state_accessor<int> click_count = get_state(ctx, 0);
         do_text(ctx, printf(ctx, "clicks: %d", click_count));
-        if (do_button(ctx, text("Click Me!")))
-        {
-            set(click_count, get(click_count) + 1);
-        }
+        do_button(ctx, text("Click Me!"),
+            [&]()
+            {
+                set(click_count, get(click_count) + 1);
+            });
     })
 
 DEFINE_DEMO(
@@ -82,10 +83,11 @@ DEFINE_DEMO(
     {
         state_accessor<int> click_count = get_state(ctx, 0);
         do_text(ctx, printf(ctx, "clicks: %d", click_count));
-        if (do_link(ctx, text("click me")))
-        {
-            set(click_count, get(click_count) + 1);
-        }
+        do_link(ctx, text("Click me"),
+            [&]()
+            {
+                set(click_count, get(click_count) + 1);
+            });
     })
 
 static demo_interface* button_demos[] =

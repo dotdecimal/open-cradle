@@ -283,8 +283,11 @@ voxels_in_structure_request_helper(
     request<structure_geometry> const& str_geometry)
 {
     auto reg_grid = rq_property(img_geom, grid);
-    auto cell_info = rq_compute_grid_cells_in_structure(reg_grid, str_geometry);
-    return rq_property(cell_info, cells_inside);
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    //auto cell_info = rq_compute_grid_cells_in_structure(reg_grid, str_geometry);
+    //return rq_property(cell_info, cells_inside);
+    return rq_value(std::vector<weighted_grid_index>());
 }
 
 indirect_accessor<request<std::vector<weighted_grid_index> > >

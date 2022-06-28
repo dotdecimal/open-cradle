@@ -21,7 +21,6 @@
 namespace cradle {
 
 struct triangle_mesh;
-struct adaptive_grid;
 struct divergent_grid;
 struct weighted_grid_index;
 

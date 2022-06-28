@@ -16,9 +16,6 @@ list(APPEND srcs ${c_srcs})
 file(GLOB_RECURSE headers "${CRADLE_SOURCE_DIR}/src/*.hpp")
 file(GLOB_RECURSE c_headers "${CRADLE_SOURCE_DIR}/src/*.h")
 file(GLOB_RECURSE impls "${CRADLE_SOURCE_DIR}/src/*.ipp")
-file(GLOB_RECURSE testfiles "Unit_Tests/*.hpp")
-file(GLOB_RECURSE catch_test_srcs "catch_unit_tests/*.cpp")
-file(GLOB_RECURSE catch_test_files "catch_unit_tests/*.hpp")
 
 # Collect all CRADLE headers (with a few exceptions) as preprocessed files.
 # (The exceptions are excepted because they don't contain any API commands
@@ -146,9 +143,9 @@ endif()
 preprocess_cradle_header_files(
     ${CRADLE_SOURCE_DIR} generated_srcs generated_headers
     USE_INTERNAL_PREPROCESSOR
-    ACCOUNT_ID <thinknode account ID>
-    TYPE_APP_ID dosimetry
-    FUNCTION_APP_ID dosimetry
+    ACCOUNT_ID decimal
+    TYPE_APP_ID cradle
+    FUNCTION_APP_ID cradle
     NAMESPACE cradle
     INDEX_FILE "${CMAKE_CURRENT_BINARY_DIR}/generated/src/cradle/api_index.hpp"
     INPUT_FILES ${preprocessed_files})
@@ -235,17 +232,3 @@ include_directories(${MY_INCLUDE_DIRS})
 add_library(cradle STATIC ${cradle_srcs})
 target_link_libraries(cradle ${MY_LIBRARIES})
 set_property(TARGET cradle PROPERTY FOLDER "cradle")
-
-# This has been moved to dosimetry in the rt_types_generate_api
-# add_executable(generate_api generate_api.cpp)
-# target_link_libraries(generate_api cradle ${MY_LIBRARIES})
-
-add_executable(cradle_catch_unit_tests catch_unit_tests/catch_unit_tests.cpp ${catch_test_files} ${catch_test_srcs})
-target_link_libraries(cradle_catch_unit_tests cradle ${MY_LIBRARIES})
-set_property(TARGET cradle_catch_unit_tests PROPERTY FOLDER "cradle")
-
-if (WIN32)
-    add_executable(cradle_unit_tests_win32 Unit_Tests/win32/Unit_Tests_win32.cpp ${testfiles})
-    target_link_libraries(cradle_unit_tests_win32 cradle ${MY_LIBRARIES})
-    set_property(TARGET cradle_unit_tests_win32 PROPERTY FOLDER "cradle")
-endif()

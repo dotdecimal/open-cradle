@@ -4,14 +4,12 @@
 
 #include <cradle/external/opengl.hpp>
 #include <cradle/geometry/meshing.hpp>
-#include <cradle/geometry/slice_mesh.hpp>
 #include <cradle/gui/displays/regular_image.hpp>
 #include <cradle/gui/displays/sliced_3d_canvas.hpp>
 #include <cradle/gui/collections.hpp>
 #include <cradle/gui/requests.hpp>
 #include <cradle/gui/widgets.hpp>
 #include <cradle/imaging/isobands.hpp>
-#include <cradle/imaging/inclusion_image.hpp>
 
 namespace cradle {
 
@@ -301,15 +299,34 @@ get_mesh_slice_request(
     cross_section_plane.point =
         unslice(make_vector(0., 0.), slice_axis, slice_positions[slice_axis]);
 
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    //return
+    //    gui_apply(ctx,
+    //        rq_foreground<polyset>,
+    //        gui_apply(ctx,
+    //            rq_sliced_transformed_mesh,
+    //            rq_in(cross_section_plane),
+    //            rq_in(up),
+    //            mesh,
+    //            transform));
     return
         gui_apply(ctx,
-            rq_foreground<polyset>,
-            gui_apply(ctx,
-                rq_sliced_transformed_mesh,
-                rq_in(cross_section_plane),
-                rq_in(up),
-                mesh,
-                transform));
+            [ ](// The plane along which the mesh is being sliced
+                request<plane<double> > const& cross_section_plane,
+                // The up vector used to determine how the polyset is being viewed
+                request<vector3d > const& up,
+                // The mesh that is to be sliced
+                request<triangle_mesh > const& mesh,
+                // The matrix used to determine the position of the polyset
+                request<matrix<4, 4, double> > const& transform)
+            {
+                return rq_value(polyset());
+            },
+            rq_in(cross_section_plane),
+            rq_in(up),
+            mesh,
+            transform);
 }
 
 // Overload helper to draw defined mesh on an image slice
@@ -361,18 +378,22 @@ compose_structure_slice_request(
     sliced_scene_geometry<3> const& scene,
     unsigned slice_axis, double slice_position)
 {
-    // Use the original slice contours if slicing along the same axis.
-    // Otherwise, reslice it.
-    auto aligned_structure =
-        slice_axis == 2 ?
-        structure :
-        rq_mesh_as_structure(
-            rq_compute_triangle_mesh_from_structure(structure),
-            rq_value(slice_axis),
-            rq_value(scene.slicing[slice_axis]));
-    // Now get the right slice.
-    return rq_get_structure_slice_as_polyset(
-        aligned_structure, rq_value(slice_position));
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    //// Use the original slice contours if slicing along the same axis.
+    //// Otherwise, reslice it.
+    //auto aligned_structure =
+    //    slice_axis == 2 ?
+    //    structure :
+    //    rq_mesh_as_structure(
+    //        rq_compute_triangle_mesh_from_structure(structure),
+    //        rq_value(slice_axis),
+    //        rq_value(scene.slicing[slice_axis]));
+    //// Now get the right slice.
+    //return rq_get_structure_slice_as_polyset(
+    //    aligned_structure, rq_value(slice_position));
+
+    return rq_value(polyset());
 }
 
 void draw_structure_slice(

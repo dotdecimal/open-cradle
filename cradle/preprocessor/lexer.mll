@@ -25,6 +25,8 @@ rule token = parse
   | ("//" ['\n''\r'])
                     { EMPTY_COMMENT_STRING }
   | (digit+ '.' digit+ '.' digit+ '-' ident_num*) as v { VER v }
+  
+  | (digit+ '.' digit+ '.' digit+) as v { VER v }
 
   | (digit+) as n   { INTEGER (int_of_string n) }
 

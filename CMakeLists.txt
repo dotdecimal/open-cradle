@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project(astroid)
+project(open-cradle)
 
 # set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
@@ -15,6 +15,5 @@ add_subdirectory("${CRADLE_SOURCE_DIR}/preprocessor")
 add_subdirectory("${CRADLE_SOURCE_DIR}")
 add_subdirectory("${ASTROID_SOURCE_DIR}/visualization")
 if (WIN32)
-    add_subdirectory("${ASTROID_SOURCE_DIR}/analysis")
-    add_subdirectory("${ASTROID_SOURCE_DIR}/gui_demo")    
+    add_subdirectory("${ASTROID_SOURCE_DIR}/gui_demo")      
 endif()

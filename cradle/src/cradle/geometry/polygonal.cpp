@@ -595,6 +595,47 @@ polyset polyset_expansion(polyset const& src, double amount)
     return result;
 }
 
+polyset smooth_polyset(
+    polyset const& set,
+    double smoothSize,
+    double smoothWeight)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return polyset();
+}
+
+polyset smooth_polyset_2(
+    polyset const& set,
+    double smoothSize,
+    int iter)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return polyset();
+}
+
+polyset split_polyset(
+    polyset const& set,
+    ray<2, double> r)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return polyset();
+}
+
+std::vector<vector3d> slice_polyset(
+    polyset const& p,
+    unsigned polyset_axis,
+    double polyset_position,
+    unsigned slice_axis,
+    double slice_position)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return std::vector<vector3d>();
+}
+
 void create_polyset_from_polygons(polyset* set,
     std::vector<polygon2> const& polygons)
 {
@@ -1036,6 +1077,17 @@ void expand_in_2d(
     }
 }
 
+void expand_in_3d(
+    structure_geometry* result,
+    structure_geometry const& structure,
+    double amount)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    auto copy = structure;
+    result = &copy;
+}
+
 box<2,double>
 bounding_box(polygon2 const& poly)
 {
@@ -1158,6 +1210,27 @@ void compute_bounding_box(optional<box<3,double> >& box,
     }
 }
 
+structure_geometry
+split_structure(
+    structure_geometry const& structure,
+    vector3d normal,
+    vector3d point)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return structure;
+}
+
+polyset
+slice_structure(
+    structure_geometry const& structure,
+    unsigned slice_axis,
+    double slice_position)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return polyset();
+}
 
 bool
 overlapping(
@@ -1217,6 +1290,16 @@ overlapping(
     return false;
 }
 
+structure_geometry
+slice_structure_along_different_axis(
+    structure_geometry const& structure,
+    unsigned new_axis,
+    std::vector<double> const& slice_positions)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return structure;
+}
 
 bool almost_equal(polygon2 const& a, polygon2 const& b, double tolerance)
 {

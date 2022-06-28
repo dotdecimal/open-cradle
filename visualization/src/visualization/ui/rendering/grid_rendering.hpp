@@ -9,15 +9,6 @@
 
 namespace visualization {
 
-// Add an adaptive 3D grid to the sliced views.
-void
-add_sliced_adaptive_grid(
-    gui_context& ctx,
-    spatial_3d_scene_graph& scene_graph,
-    accessor<request<adaptive_grid> > const& grid,
-    accessor<double> const& min_spacing,
-    canvas_layer layer = FILLED_OVERLAY_CANVAS_LAYER);
-
 // Add a generic 3d grid to the sliced views.
 // The grid is specified as a list of boxes.
 void

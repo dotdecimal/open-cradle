@@ -328,7 +328,11 @@ let cpp_code_to_define_function_instance account_id app_id f label assignments =
         (string_of_int (List.length f.function_parameters)) ^ ") " ^
     "throw cradle::exception(\"wrong number of arguments (expected " ^
         (string_of_int (List.length f.function_parameters)) ^ ")\"); " ^
-    "cradle::value_list::const_iterator arg_i = args.begin(); " ^
+    (if (List.length f.function_parameters) > 0
+	 then
+		"cradle::value_list::const_iterator arg_i = args.begin(); " 
+	 else
+		"") ^
     (String.concat ""
         (List.map (cpp_code_to_get_parameter_from_value_list assignments)
             f.function_parameters)) ^
@@ -363,8 +367,12 @@ let cpp_code_to_define_function_instance account_id app_id f label assignments =
         (string_of_int (List.length f.function_parameters)) ^ ") " ^
     "throw cradle::exception(\"wrong number of arguments (expected " ^
         (string_of_int (List.length f.function_parameters)) ^ ")\"); " ^
-    "std::vector<cradle::untyped_immutable>::const_iterator " ^
-    "arg_i = args.begin(); " ^
+	(if (List.length f.function_parameters) > 0
+	 then
+		"std::vector<cradle::untyped_immutable>::const_iterator " ^
+		"arg_i = args.begin(); "
+	 else
+		"") ^
     (String.concat ""
         (List.map (cpp_code_to_get_parameter_from_immutable_list assignments)
             f.function_parameters)) ^
