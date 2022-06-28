@@ -3,7 +3,6 @@
 #include <alia/ui/api.hpp>
 #include <alia/ui/utilities.hpp>
 
-#include <cradle/geometry/adaptive_grid.hpp>
 #include <cradle/geometry/grid_points.hpp>
 #include <cradle/gui/displays/geometry_utilities.hpp>
 #include <cradle/gui/displays/graphing.hpp>
@@ -833,18 +832,6 @@ compose_normalized_dvh_request(
     return
         rq_foreground(rq_normalize_differential_dvh(histogram,
             rq_sum_grid_index_weights(structure_voxels)));
-}
-
-
-request<std::vector<weighted_grid_index> >
-compose_compute_adaptive_voxels_in_structure_request(
-    request<adaptive_grid> const& dose_grid,
-    request<structure_geometry> const& geometry)
-{
-    return
-        rq_property(
-            rq_compute_adaptive_voxels_in_structure(dose_grid, geometry),
-            cells_inside);
 }
 
 void

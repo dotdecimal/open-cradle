@@ -15,12 +15,13 @@ DEFINE_DEMO(
     "This demonstrates how event handling works in alia.",
     void do_ui(gui_context& ctx)
     {
-        static string message = "Please!";
-        if (do_button(ctx, text("Push me!")))
-        {
-            message = "Thanks!";
-        }
-        do_text(ctx, in(message));
+        auto message = get_state(ctx, string("Please!"));
+        do_button(ctx, text("Push me!"),
+            [&]
+            {
+                set(message, "Thanks!");
+            });
+        do_text(ctx, message);
     })
 
 DEFINE_DEMO(
@@ -28,9 +29,9 @@ DEFINE_DEMO(
     "This demostrates how simple controls work in alia.",
     void do_ui(gui_context& ctx)
     {
-        static bool checked = false;
-        do_check_box(ctx, inout(&checked), text("Check me"));
-        do_text(ctx, text(checked ? "Thanks!" : "Please!"));
+        auto checked = get_state(ctx, false);
+        do_check_box(ctx, checked, text("Check me"));
+        do_text(ctx, text(is_true(checked) ? "Thanks!" : "Please!"));
     })
 
 DEFINE_DEMO(
@@ -39,6 +40,8 @@ DEFINE_DEMO(
     void do_ui(gui_context& ctx)
     {
         static bool checked = false;
+        // Note: inout() is deprecated. 'checked' should be a state accessor as shown in the
+        // original check box example
         do_check_box(ctx, inout(&checked), text("Show text"));
         alia_if (checked)
         {
@@ -59,5 +62,5 @@ static demo_section* section_list[] =
 
 demo_page tutorial_page =
     { "Tutorial", section_list };
-    
+
 }

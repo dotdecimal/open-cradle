@@ -9,8 +9,8 @@ DEFINE_DEMO(
         form form(ctx);
         {
             form_field field(form, text("Email"));
-            static string email;
-            do_text_control(ctx, inout(&email));
+            auto email = get_state(ctx, string(""));
+            do_text_control(ctx, email);
         }
         {
             form_field field(form, text("Password"));
@@ -19,7 +19,11 @@ DEFINE_DEMO(
         }
         {
             form_buttons buttons(form);
-            do_button(ctx, text("Submit"));
+            do_button(ctx, text("Submit"),
+                [&]()
+                {
+                    // Some action
+                });
         }
     })
 

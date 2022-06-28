@@ -6,7 +6,7 @@ file(GLOB_RECURSE headers "src/*.hpp")
 file(GLOB_RECURSE preprocessed_files "src/*.hpp")
 preprocess_cradle_header_files(
     "${CMAKE_CURRENT_SOURCE_DIR}" generated_srcs generated_headers
-    ACCOUNT_ID <thinknode account ID>
+    ACCOUNT_ID decimal
     TYPE_APP_ID gui_demo
     FUNCTION_APP_ID gui_demo
     NAMESPACE gui_demo
@@ -26,7 +26,7 @@ source_group(generated REGULAR_EXPRESSION "generated/src/")
 
 resolve_cradle_dependencies(MY INCLUDE_WX INCLUDE_OPENGL INCLUDE_GLEW
     INCLUDE_SKIA INCLUDE_CURL INCLUDE_OPENSSL INCLUDE_DEVIL
-    PROJECTS cradle dosimetry)
+    PROJECTS cradle)
 include_directories(${MY_INCLUDE_DIRS})
 include_directories(src)
 

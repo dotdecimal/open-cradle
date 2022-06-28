@@ -1,12 +1,11 @@
 #ifndef GUI_DEMO_COMMON_HPP
 #define GUI_DEMO_COMMON_HPP
 
-#include <dosimetry/common.hpp>
+#include <cradle/common.hpp>
 
 namespace gui_demo {
 
 using namespace cradle;
-using namespace dosimetry;
 
 using cradle::exception;
 using cradle::to_value;

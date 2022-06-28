@@ -381,6 +381,47 @@ collapse_mesh(growable_triangle_mesh_with_normals const& growable)
     return mesh;
 }
 
+triangle_mesh
+compute_triangle_mesh_from_structure_with_options(
+    structure_geometry const& structure,
+    double min_spacing,
+    int max_grid_count)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return triangle_mesh();
+}
+
+triangle_mesh
+compute_triangle_mesh_from_structure(
+    structure_geometry const& structure)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return triangle_mesh();
+}
+
+// Triangulated mesh
+triangle_mesh
+compute_triangle_mesh_from_image_double(
+    image<3, double, shared> const& img,
+    double level)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return triangle_mesh();
+}
+
+triangle_mesh
+compute_triangle_mesh_from_image_float(
+    image<3, float, shared> const& img,
+    double level)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return triangle_mesh();
+}
+
 image<3, float, shared> set_data_for_structure(image<3, float, shared> const& img, structure_geometry const& structure, float threshold, bool setDataInside)
 {
     image<3, float, unique> tmp;
@@ -645,6 +686,15 @@ triangle_mesh remove_normals(triangle_mesh_with_normals const& orig)
     return mesh;
 }
 
+face3_bin_collection
+make_bin_collection_from_mesh(
+    triangle_mesh const& mesh,
+    unsigned resolution_multiplier)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return face3_bin_collection();
+}
 
 triangle3d get_triangle(triangle_mesh const& mesh, face3_array::size_type index)
 {
@@ -707,6 +757,12 @@ struct sum
     }
 };
 
+bool mesh_contains(optimized_triangle_mesh const& mesh, vector3d const& point)
+{
+    // [open-cradle] This functionality has been removed in the open-cradle repo
+    throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+    return true;
+}
 
 typedef std::pair<int, int> edge;
 

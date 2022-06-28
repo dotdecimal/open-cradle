@@ -2,7 +2,6 @@
 
 #include <alia/ui/utilities/rendering.hpp>
 
-#include <cradle/geometry/adaptive_grid.hpp>
 #include <cradle/gui/collections.hpp>
 #include <cradle/gui/displays/drawing.hpp>
 #include <cradle/gui/displays/geometry_utilities.hpp>
@@ -116,45 +115,6 @@ draw_grid_boxes(
         }
     }
     alia_end
-}
-
-struct adaptive_grid_scene_object : spatial_3d_scene_graph_sliced_object
-{
-    keyed_data<request<adaptive_grid> > grid;
-    keyed_data<double> min_spacing;
-
-    void
-    render(
-        gui_context& ctx,
-        sliced_3d_canvas& c3d,
-        embedded_canvas& c2d) const
-    {
-        auto grid_boxes =
-            gui_request(ctx,
-                gui_apply(ctx,
-                    rq_adaptive_grid_voxel_boxes,
-                    make_accessor(&this->grid)));
-        draw_grid_boxes(ctx, c3d, grid_boxes,
-            make_accessor(&this->min_spacing));
-    }
-};
-
-void
-add_sliced_adaptive_grid(
-    gui_context& ctx,
-    spatial_3d_scene_graph& scene_graph,
-    accessor<request<adaptive_grid> > const& grid,
-    accessor<double> const& min_spacing,
-    canvas_layer layer)
-{
-    adaptive_grid_scene_object* object;
-    get_cached_data(ctx, &object);
-    if (is_refresh_pass(ctx))
-    {
-        refresh_accessor_clone(object->grid, grid);
-        refresh_accessor_clone(object->min_spacing, min_spacing);
-        add_sliced_scene_object(scene_graph, object, layer);
-    }
 }
 
 struct grid_boxes_scene_object : spatial_3d_scene_graph_sliced_object

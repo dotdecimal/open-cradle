@@ -48,7 +48,7 @@ let declaration_registration_code account_id type_app_id fun_app_id decl =
       | Dstructure s -> cpp_code_to_register_structures_and_record type_app_id account_id s
       | Denum e -> cpp_code_to_register_enum type_app_id e
       | Dunion u -> cpp_code_to_register_union type_app_id u
-      | Ddependency d -> cpp_code_to_register_dependency type_app_id d
+      | Ddependency d -> cpp_code_to_register_dependency account_id type_app_id d
       | Dprovider p -> cpp_code_to_register_provider type_app_id p
       | Dprevious_release_version ufv -> cpp_code_to_register_previous_release_version type_app_id ufv
       | Drecord r -> cpp_code_to_register_record type_app_id r

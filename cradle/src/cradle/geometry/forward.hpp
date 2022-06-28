@@ -58,9 +58,6 @@ CRADLE_GEOMETRY_DEFINE_TYPEDEFS(vector)
 using alia::box;
 CRADLE_GEOMETRY_DEFINE_TYPEDEFS(box)
 
-// adaptive_grid.hpp
-struct adaptive_grid;
-
 // meshing.hpp
 struct optimized_triangle_mesh;
 struct triangle_mesh;

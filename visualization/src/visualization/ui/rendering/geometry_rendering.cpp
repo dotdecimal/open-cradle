@@ -336,9 +336,25 @@ struct projected_structure_scene_object : spatial_3d_scene_graph_projected_3d_ob
     {
         auto structure = make_accessor(&this->structure);
         return
+            // [open-cradle] This functionality has been removed in the open-cradle repo
+            throw exception("[open-cradle] This functionality has been removed in the open-cradle repo: " + string(__FUNCTION__));
+            //gui_request(ctx,
+            //    gui_apply(ctx,
+            //        rq_compute_triangle_mesh_from_structure_with_options,
+            //        _field(structure, geometry),
+            //        rq_in(0.5),
+            //        rq_in(25000)));
             gui_request(ctx,
                 gui_apply(ctx,
-                    rq_compute_triangle_mesh_from_structure_with_options,
+                    [ ](// Structure to compute into triangulated mesh
+                        structure_geometry const& structure,
+                        // Minimum grid spacing
+                        double min_spacing,
+                        // Maximum number of grid cells
+                        int max_grid_count)
+                    {
+                        return rq_value(triangle_mesh());
+                    },
                     _field(structure, geometry),
                     rq_in(0.5),
                     rq_in(25000)));

@@ -7,7 +7,6 @@
 #include <alia/ui/api.hpp>
 #include <cradle/geometry/common.hpp>
 #include <cradle/geometry/slicing.hpp>
-#include <cradle/imaging/inclusion_image.hpp>
 #include <cradle/imaging/variant.hpp>
 #include <cradle/gui/common.hpp>
 #include <cradle/geometry/regular_grid.hpp>
